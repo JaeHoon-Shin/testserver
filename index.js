@@ -43,7 +43,7 @@ app.use(express.urlencoded({
 }))
 
 //이미지를 볼 수 있게 경로 설정
-app.use('/uploads', express.static('uploads'));
+//app.use('/uploads', express.static('uploads'));
 //파일 업로드시 실행되는 함수
 app.post("/upload",upload.single('imgFile'),(req, res) => {
     /* console.log(
