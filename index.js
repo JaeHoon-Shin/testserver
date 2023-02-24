@@ -21,7 +21,7 @@ const multer  = require('multer')
 let upload = multer({
     storage: multer.diskStorage({ // 어디에 저장할 것인가? 일단 하드디스크
     destination:function(req,file,cd){
-        cd(null,"https://port-0-testserver-3kzv72nlei8hxtv.sel3.cloudtype.app/uploads");
+        cd(null,"/uploads");
     },
     filename:function(req,file,cd){
         const ext = path.extname(file.originalname); //확장자 추출
@@ -44,11 +44,11 @@ app.use(express.urlencoded({
 
 //이미지를 볼 수 있게 경로 설정
 //app.use('/uploads', express.static('uploads'));
-//파일 업로드시 실행되는 함수
-app.post("/upload",upload.single('imgFile'),(req, res) => {
-    /* console.log(
+//파일 업로드시 실행되는 함수,upload.single('imgFile')
+app.post("/upload",(req, res) => {
+    console.log(
         req.body
-    ) */
+    )
     res.send('확인');
 })
 
