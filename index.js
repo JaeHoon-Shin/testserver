@@ -21,12 +21,13 @@ const multer  = require('multer')
 let upload = multer({
     storage: multer.diskStorage({ // 어디에 저장할 것인가? 일단 하드디스크
     destination:function(req,file,cd){
-        cd(null,"https://github.com/JaeHoon-Shin/testserver/tree/main/uploads");
+        cd(null,"https://port-0-testserver-3kzv72nlei8hxtv.sel3.cloudtype.app/uploads");
     },
     filename:function(req,file,cd){
         const ext = path.extname(file.originalname); //확장자 추출
         const basename = path.basename(file.originalname,ext);//파일이름
-        cd(null,basename +"_"+new Date().getTime() + ext);//파일이름+시간초+확장자  => 나중에는 아이디 값도
+        cd(null,basename +"_"+new Date().getTime() + ext);//파일이름+시간초+확장자  
+        //=> 나중에는 아이디 값도?? 근데 시간만으로도 충분히 중복을 처리가능?
     }
 }),limits:{
     fileSize: 0.3*1024*1024
