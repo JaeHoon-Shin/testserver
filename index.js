@@ -3,7 +3,7 @@ const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 const app = express();
-const port = 3001;
+const port = 4000;
 
 //CORS란 자신이 속하지 않은 다른 도메인, 다른 프로토콜, 혹은 다른 포트에 있는 리소스를 요청하는 cross-origin HTTP 요청 방식이다
 let corsOption = {
@@ -53,7 +53,7 @@ app.post("/upload",upload.single('imgFile'),(req, res) => {
 })
 
 app.get("/", (req, res) => {
-    console.log(req.body)
+    res.send('하하하하')
 })
 
 app.listen(port, () => {
