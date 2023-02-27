@@ -16,6 +16,18 @@ app.use(cors(corsOption));
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
+//받아 올 수 있는 값 제한을 3mb로 늘려줌
+app.use(express.json({
+    limit: '3mb'
+}))
+app.use(express.urlencoded({
+    limit: '3mb',
+    extended: false
+}))
+
+
+
 // 이미지를 업로드 하는 multer 
 const multer  = require('multer')
 let upload = multer({
@@ -30,18 +42,11 @@ let upload = multer({
         //=> 나중에는 아이디 값도?? 근데 시간만으로도 충분히 중복을 처리가능?
     }
 }),limits:{
-    fileSize: 0.5*1024*1024
+    fileSize: 0.3*1024*1024
 }, // 용량제한 300KB
 })
 
-//받아 올 수 있는 값 제한을 3mb로 늘려줌
-app.use(express.json({
-    limit: '3mb'
-}))
-app.use(express.urlencoded({
-    limit: '3mb',
-    extended: false
-}))
+
 
 //이미지를 볼 수 있게 경로 설정
 app.use('/uploads', express.static('uploads'));
