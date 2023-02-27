@@ -48,7 +48,7 @@ app.use('/uploads', express.static('uploads'));
 //파일 업로드시 실행되는 함수
 app.post("/upload",upload.single('imgFile'),(req, res) => {
     console.log(
-        req.body
+        req.file
     )
     res.send('확인');
 })
