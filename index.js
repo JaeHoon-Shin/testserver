@@ -21,7 +21,7 @@ const multer  = require('multer')
 let upload = multer({
     storage: multer.diskStorage({ // 어디에 저장할 것인가? 일단 하드디스크
     destination:function(req,file,cd){
-        cd(null,"/uploads");
+        cd(null,"./uploads");
     },
     filename:function(req,file,cd){
         const ext = path.extname(file.originalname); //확장자 추출

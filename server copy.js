@@ -47,13 +47,7 @@ let upload = multer({
 //upload.single('file'),
 
 
-app.use(express.json({
-    limit: '3mb'
-}))
-app.use(express.urlencoded({
-    limit: '3mb',
-    extended: false
-}))
+
 /* let storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, "./uploads")
